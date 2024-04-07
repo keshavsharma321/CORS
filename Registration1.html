@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <style>
+    body {
+      background: rgb(254, 18, 18);
+      background: linear-gradient(
+        104deg,
+        rgba(254, 18, 18, 1) 0%,
+        rgba(24, 56, 242, 1) 100%
+      );
+    }
+    #main {
+      width: 100%;
+      max-width: 30rem;
+      border: 1px solid #dadce0;
+      margin: 5.5% auto;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    #Logo1 {
+      text-align: center;
+      margin-top: 12%;
+    }
+
+    #basic {
+      text-align: center;
+      margin-top: 2%;
+    }
+
+    #birth {
+      text-align: center;
+      margin-top: 2%;
+    }
+
+    #date,
+    #year {
+      width: 33.33%;
+      height: 55px;
+      border: 1px solid #dadce0;
+      border-radius: 5px;
+    }
+
+    select {
+      width: 100%;
+      height: 55px;
+      background-color: white;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+    }
+
+    #button {
+      text-align: center;
+      margin-top: 9%;
+    }
+
+    @media (max-width: 768px) {
+      #main {
+        max-width: 80%;
+      }
+
+      #Logo1 label {
+        font-size: 25px;
+      }
+
+      #basic label {
+        font-size: 25px;
+      }
+
+      #birth label {
+        font-size: 18px;
+      }
+
+      #date,
+      #year,
+      #monthDropdown,
+      #genderdropdown {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #main {
+        max-width: 90%;
+      }
+    }
+  </style>
+  <body>
+    <br />
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: centers;
+        margin-top: 20px;
+      "
+    >
+      <img
+        style="height: 120px"
+        src="ffb33c9332d5fb8e7ebac80ab745b27b1664512578443349_original-removebg-preview.png"
+      />
+    </div>
+    <br />
+    <div id="main" style="background-color: white; margin-top: 1px">
+      <div>
+        <div
+          id="Logo"
+          style="margin-top: 15px; display: flex; justify-content: center"
+        >
+          <label style="font-size: 29px; color: #ea4335; margin-top: 1px"
+            ><b>CORS</b></label
+          >
+          <label style="font-size: 30px; color: #4285f4; margin-left: 4px"
+            ><b>POLICE</b></label
+          >
+        </div>
+        <div
+          id="basic"
+          style="
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <label style="font-size: 25px">Basic information</label>
+        </div>
+        <div id="birth">
+          <label style="font-size: 18px">Enter Your birthday and gender</label>
+        </div>
+        <div style="display: flex">
+          <div style="width: 30.33%; margin-top: 9%">
+            <select
+              id="monthDropdown"
+              class="form-control"
+              ng-model="month"
+              required
+            >
+              <option value="">Select Month</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+          <input
+            style="width: 30.33%; margin-top: 9%; margin-left: 1rem"
+            id="date"
+            class="form-control"
+            placeholder="Date"
+            aria-label="Date"
+            aria-describedby="basic-addon1"
+            ng-model="date"
+            type="number"
+            min="1"
+            max="31"
+            required
+          />
+          <input
+            style="width: 30.33%; margin-top: 9%; margin-left: 1rem"
+            id="year"
+            type="number"
+            min="1"
+            class="form-control"
+            placeholder="Year"
+            aria-label="Year"
+            aria-describedby="basic-addon1"
+            ng-model="year"
+            required
+          />
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 9%">
+          <select
+            style="
+              width: 100%;
+              height: 40px;
+              background-color: white;
+              border: 1px solid #dee2e6;
+              border-radius: 5px;
+            "
+            id="genderdropdown"
+            ng-model="gender"
+            ng-options="opt.option as opt.option for opt in options"
+            required
+          >
+            <option value="{{opt.option}}">Select Gender</option>
+          </select>
+        </div>
+        <div id="button" style="margin-top: 25px">
+          <button type="button" class="btn btn-primary" ng-click="next2()">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

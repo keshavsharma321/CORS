@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script src="Register.js"></script>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        overflow-y: hidden;
+        background: rgb(254, 18, 18);
+        background: linear-gradient(
+          104deg,
+          rgba(254, 18, 18, 1) 0%,
+          rgba(24, 56, 242, 1) 100%
+        );
+      }
+      #main {
+        border: 1px solid #dadce0;
+        border-radius: 10px;
+        margin: 5.5% auto;
+        padding: 20px;
+        max-width: 33%;
+        height: 26rem;
+      }
+
+      #Logo {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #Gmail {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      #Email {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #FName,
+      #LName {
+        width: 90%;
+        margin-top: 40px;
+        margin-left: 1.2rem;
+      }
+
+      #button {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 768px) {
+        #main {
+          max-width: 80%;
+        }
+
+        #FName,
+        #LName {
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #Logo label {
+          font-size: 20px;
+        }
+
+        #Gmail label {
+          font-size: 18px;
+        }
+
+        #Email label {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: centers;
+        margin-top: 20px;
+      "
+    >
+      <img
+        style="height: 120px"
+        src="ffb33c9332d5fb8e7ebac80ab745b27b1664512578443349_original-removebg-preview.png"
+      />
+    </div>
+    <br />
+    <div id="main" style="background-color: white; margin-top: 1px">
+      <div>
+        <div id="Logo" style="margin-top: 20px">
+          <label style="font-size: 29px; color: #ea4335"><b>CORS</b></label>
+          <label style="font-size: 32px; color: #4285f4"><b>POLICE</b></label>
+        </div>
+        <div id="Gmail"><label style="font-size: 22px">Sign in </label></div>
+        <div id="Email">
+          <label style="font-size: 18px">to Continue to CORS POLICE</label>
+        </div>
+
+        <div id="FName" style="margin-top: 2rem" class="input-group mb-3">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Password"
+            style="border-radius: 20px"
+            aria-describedby="basic-addon1"
+            ng-model="password"
+            required
+          />
+        </div>
+        <div style="margin-left: 5%">
+          <input type="checkbox" ng-model="showPassword" />
+          <label>Show Password</label>
+        </div>
+        <div style="display: flex; margin-left: 1.8rem; margin-top: 10px">
+          <div>
+            <label ui-sref="Register" style="color: #4285f4; margin-top: 20px"
+              >Forgot password ?</label
+            >
+          </div>
+          <div id="button" style="margin-left: 45%">
+            <button
+              type="button"
+              style="border-radius: 20px"
+              class="btn btn-primary"
+              ng-click="login()"
+            >
+              Login
+            </button>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

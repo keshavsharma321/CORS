@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <style>
+    body {
+      background: rgb(254, 18, 18);
+      background: linear-gradient(
+        104deg,
+        rgba(254, 18, 18, 1) 0%,
+        rgba(24, 56, 242, 1) 100%
+      );
+    }
+    #main {
+      width: 100%;
+      max-width: 30rem;
+      border: 1px solid #dadce0;
+      margin: 5.5% auto;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    #Logo {
+      text-align: center;
+      margin-top: 8%;
+    }
+
+    #Gmail {
+      text-align: center;
+      margin-top: 5%;
+    }
+
+    #Email {
+      text-align: center;
+      margin-top: 2%;
+    }
+
+    #FName,
+    #LName,
+    #button {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 1% 0;
+      margin-left: 11rem;
+    }
+
+    @media (max-width: 768px) {
+      #main {
+        max-width: 80%;
+      }
+
+      #Logo label {
+        font-size: 25px;
+      }
+
+      #Gmail label {
+        font-size: 22px;
+      }
+
+      #Email label {
+        font-size: 18px;
+      }
+
+      input.form-control {
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #main {
+        max-width: 90%;
+      }
+    }
+  </style>
+  <body>
+    <br />
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: centers;
+        margin-top: 20px;
+      "
+    >
+      <img
+        style="height: 120px"
+        src="ffb33c9332d5fb8e7ebac80ab745b27b1664512578443349_original-removebg-preview.png"
+      />
+    </div>
+    <br />
+    <div id="main" style="background-color: white; margin-top: 1px">
+      <div>
+        <div id="Logo" style="margin-top: 20px">
+          <label style="font-size: 29px; color: #ea4335"><b>CORS</b></label>
+          <label style="font-size: 32px; color: #4285f4"><b>POLICE</b></label>
+        </div>
+        <div id="Gmail">
+          <label style="font-size: 22px">Enter Your Recovery Email</label>
+        </div>
+        <div id="Email">
+          <label style="font-size: 18px"
+            >Enter Your Recovery Email And Verification Code.</label
+          >
+        </div>
+        <div id="FName" class="input-group mb-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Recovery Email"
+            aria-label="Email"
+            aria-describedby="basic-addon1"
+            ng-model="recoveryemail"
+            type="email"
+            required
+          />
+        </div>
+        <button
+          style="margin-left: 69%; margin-top: 1%"
+          class="btn btn-primary"
+          ng-click="verify()"
+        >
+          Send Code
+        </button>
+        <div id="LName" class="input-group mb-3">
+          <input
+            class="form-control"
+            placeholder="Enter Code"
+            aria-label="Code"
+            aria-describedby="basic-addon1"
+            ng-model="Code"
+            pattern="[0-9][0-9][0-9][0-9]"
+            required
+          />
+        </div>
+        <button
+          style="margin-left: 76%; margin-top: 1%"
+          class="btn btn-primary"
+          ng-click="code()"
+        >
+          Verify
+        </button>
+
+        <div style="margin-left: 69%; margin-top: 1.8%; font-size: 13px">
+          <label ng-click="verify()">Didn't get code?</label>
+        </div>
+
+        <div id="button">
+          <button type="button" class="btn btn-primary" ng-click="next4()">
+            Register
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

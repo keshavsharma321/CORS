@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <style>
+    body {
+      background: rgb(254, 18, 18);
+      background: linear-gradient(
+        104deg,
+        rgba(254, 18, 18, 1) 0%,
+        rgba(24, 56, 242, 1) 100%
+      );
+    }
+    #main {
+      width: 100%;
+      max-width: 30rem;
+      border: 1px solid #dadce0;
+      margin: 5.5% auto;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    #Logo {
+      text-align: center;
+      margin-top: 12%;
+    }
+
+    #Name {
+      text-align: center;
+      margin-top: 2%;
+    }
+
+    #FName,
+    #LName {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    #pswd {
+      text-align: center;
+      margin-top: 2%;
+    }
+
+    #Register {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      #main {
+        max-width: 80%;
+      }
+
+      #Logo label {
+        font-size: 25px;
+      }
+
+      #Name label {
+        font-size: 22px;
+      }
+
+      #pswd label {
+        font-size: 18px;
+      }
+
+      #FName input,
+      #LName input {
+        height: 45px;
+      }
+
+      #Register button {
+        margin-top: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      #main {
+        max-width: 90%;
+      }
+    }
+  </style>
+  <body>
+    <br />
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: centers;
+        margin-top: 20px;
+      "
+    >
+      <img
+        style="height: 120px"
+        src="ffb33c9332d5fb8e7ebac80ab745b27b1664512578443349_original-removebg-preview.png"
+      />
+    </div>
+    <br />
+    <div id="main" style="background-color: white; margin-top: 20px">
+      <div>
+        <div id="Logo" style="margin-top: 20px">
+          <label style="font-size: 29px; color: #ea4335"><b>CORS</b></label>
+          <label style="font-size: 32px; color: #4285f4"><b>POLICE</b></label>
+        </div>
+        <div id="Name">
+          <label style="font-size: 22px">Create a Strong Password</label>
+        </div>
+        <div id="pswd">
+          <label style="font-size: 18px">Enter Your Password</label>
+        </div>
+
+        <div id="FName" class="input-group mb-3">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="basic-addon1"
+            style="border-radius: 20px"
+            ng-model="password"
+            required
+          />
+        </div>
+        <div id="LName" class="input-group mb-3">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            placeholder="Confirm Password"
+            aria-label="Confirm Password"
+            aria-describedby="basic-addon1"
+            ng-model="confirmpassword"
+            style="border-radius: 20px"
+            required
+          />
+        </div>
+        <div style="text-align: left; margin-top: -4px; margin-left: 5px">
+          <input type="checkbox" ng-model="showPassword" /> Show Password
+        </div>
+
+        <div id="Register">
+          <button type="button" class="btn btn-primary" ng-click="drive()">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
