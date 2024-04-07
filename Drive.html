@@ -326,8 +326,12 @@ label svg {
          <div ng-show="showdrivecontent">
           <br>
          <select style="margin-top: 1%; margin-left: 2%; height: 30px; width: 80px; background-color: white;  border-radius: 7px; border: 1px solid black ;"><option>Type</option></select>
+         <select ng-model="selectedOption" style="margin-top: 1%; margin-left: 2%; height: 30px; width: 80px; background-color: white;  border-radius: 7px; border: 1px solid black;" ng-change="openPDF()">
+          <option value="">Generate Pdf</option>
+          <option onclick="document.getElementById('photo').style.display='block' ">Pdf 1</option>
+      </select>
          <select style="margin-top: 1%; margin-left: 2%; height: 30px; width: 90px; background-color: white; border: 1px solid black ; border-radius: 7px;"><option>Modifed</option><option>Last 7 days</option></select>
-          <select style="margin-top: 1%; margin-left: 2%; height: 30px; width: 80px; background-color: white; border: 1px solid black ; border-radius: 7px;" ng-click="shared(data.id)"><option>People</option><option ng-repeat="data in recieved"><image  style="width: 1.5rem; height: 1.5rem;" ng-src="https://10.21.84.12:8000/media/{{data.profile__image}}"></image>{{data. user__first_name}}     {{data. user__last_name}}</option></select>
+          <select style="margin-top: 1%; margin-left: 2%; height: 30px; width: 80px; background-color: white; border: 1px solid black ; border-radius: 7px;" ng-click="shared(data.id)"><option>People</option><option ng-repeat="data in recieved"><image  style="width: 1.5rem; height: 1.5rem;" ng-src="https://192.168.218.65:8000/police/media/{{data.profile__image}}"></image>{{data. user__first_name}}     {{data. user__last_name}}</option></select>
          <div> <label style="margin-top: 1.5%; margin-left: 2%; font-size: 15px;">Suggested</label></div> <br>
          <div  style="display: flex; margin-left: -1%; margin-right: 1%;">
           <div style="height: 160px; width:100%;  border: 5px solid rgb(236, 232, 232); border-radius: 5px; margin-left: 2%; background-color: rgb(236, 232, 232);" ng-repeat="suggest in suggested"><h6 ng-click=" folder(suggest.id , suggest.file_name , suggest.folder_name) " style="font-size: 13px; margin-left: 2%; margin-top: 2%; background-color: rgb(236, 232, 232);">{{suggest.file_name}}</h6><image ng-click=" folder(suggest.id , suggest.file_name , suggest.folder_name) " style="height: 82%; width: 100%;  border-radius: 5px;" ng-src="https://10.21.84.12:8000/media/{{suggest.file_name}}"></image></div> 
@@ -373,24 +377,15 @@ label svg {
 
 
 
-          <div id="photo" class="w3-modal" style="text-align: center; align-items: center; border-radius: 20px; ">
-        
-              <div class="w3-container" >
-                
+           <div id="photo" class="w3-modal" style="text-align: center; align-items: center; border-radius: 20px; background-color: white;">
+            <div class="w3-container">
                 <span onclick="document.getElementById('photo').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-               
+                <image src="pdf.png"></image>
                 <div>
-                  <object
-           
-           data="{{pdfs}}"
-           type="application/pdf"
-           width="70%"
-           height="500px"
-         ></object>
-                 </div><br>
-              </div>
+                </div>
+            </div>
+        </div>
         
-          </div>
 
 
            

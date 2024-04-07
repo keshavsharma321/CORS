@@ -3,25 +3,19 @@ myApp.controller("DriveController", [
   "$state",
   "$http",
   "$rootScope",
-  function ($scope, $state, $http , $rootScope) {
-   
+  function ($scope, $state, $http, $rootScope) {
+    //     window.history.pushState(null, null, window.location.href);
+    //     window.onpopstate = function () {
+    //     window.history.go(1);
+    // };
 
-    
-    
-
- 
-
-//     window.history.pushState(null, null, window.location.href);
-//     window.onpopstate = function () {
-//     window.history.go(1); 
-// };
-
-
-
-
-     
-
-
+    $scope.openPDF = function () {
+      var selectedOption = $scope.selectedOption;
+      if (selectedOption === "Pdf 1") {
+        // Replace 'FIR-1234.pdf' with the actual path to your PDF file
+        window.open("FIR-1234.pdf", "_blank");
+      }
+    };
 
     $scope.logout = function () {
       $state.go("Home");
@@ -317,7 +311,6 @@ myApp.controller("DriveController", [
       $scope.shownestedcontent = false;
     };
 
-   
     $scope.handleClick = function (id, starred) {
       console.log(id, starred);
       id = id;
@@ -362,7 +355,6 @@ myApp.controller("DriveController", [
           function (Response) {
             console.log("Fetched Data", Response.data);
             Swal.fire("Removed Star");
-            
           },
           function (Error) {
             console.error("Failed to fetch data", Error);
@@ -371,8 +363,7 @@ myApp.controller("DriveController", [
       }
     };
 
-
- // star in share with me //***************************************** */
+    // star in share with me //***************************************** */
     $scope.handleClick12 = function (id, starred) {
       console.log(id, starred);
       id = id;
@@ -438,7 +429,6 @@ myApp.controller("DriveController", [
       $scope.showcolured12[id] = false;
       $scope.showuncolured12[id] = true;
     }
-
 
     showccontents = function () {
       $scope.showdrivecontent = false;
@@ -712,7 +702,7 @@ myApp.controller("DriveController", [
       );
     };
 
-    $scope.RENAMED = function (id) {
+    ($scope.RENAMED = function (id) {
       $scope.rename = function () {
         var data = {
           id: id,
@@ -730,7 +720,6 @@ myApp.controller("DriveController", [
             $scope.renamed = "";
             Swal.fire("File Renamed");
             $scope.closerename();
-           
           },
           function (error) {
             console.error("error", error);
@@ -738,8 +727,8 @@ myApp.controller("DriveController", [
           }
         );
       };
-    },
-      $scope.bin = function (id) {
+    }),
+      ($scope.bin = function (id) {
         console.log(id);
         $scope.trash = function () {
           var data = {
@@ -762,8 +751,8 @@ myApp.controller("DriveController", [
             }
           );
         };
-      },
-      $scope.shared = function (id) {
+      }),
+      ($scope.shared = function (id) {
         console.log(id);
         var keep = id;
         $http({
@@ -807,8 +796,8 @@ myApp.controller("DriveController", [
             }
           );
         };
-      },
-      $scope.Repet = function (id) {
+      }),
+      ($scope.Repet = function (id) {
         console.log(id);
         $scope.Rest = function () {
           var data = {
@@ -831,8 +820,8 @@ myApp.controller("DriveController", [
             }
           );
         };
-      },
-    $scope.emptybin = function () {
+      }),
+      ($scope.emptybin = function () {
         $http({
           method: "POST",
           url: ip + "api/empty_bin/",
@@ -846,7 +835,7 @@ myApp.controller("DriveController", [
             console.log("Error", error);
           }
         );
-      };
+      });
 
     $scope.downloadFile = function (file_name) {
       $http({
